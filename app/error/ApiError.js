@@ -1,6 +1,6 @@
 /**
-* 自定义Api异常
-*/
+ * 自定义Api异常
+ */
 const code = require('./error_code')
 const error_msg = require('./error_msg')
 

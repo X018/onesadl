@@ -1,6 +1,6 @@
 // 开发环境的配置内容
 const env_dev = {
-    env: 'DEVELOPEMENT',//环境名称
+    env: 'dev',//环境名称
     port: 8081,         //服务端口号
     mongodb_url: '',    //数据库地址
     redis_url:'',       //redis地址
@@ -9,7 +9,7 @@ const env_dev = {
 
 // 测试环境的配置内容
 const env_test = {
-    env: 'TEST',		//环境名称
+    env: 'test',		//环境名称
     port: 8082,         //服务端口号
     mongodb_url: '',    //数据库地址
     redis_url:'',       //redis地址
