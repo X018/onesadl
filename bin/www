@@ -110,7 +110,6 @@ console.log('ONEBIT PORT : ' + envCfg.port);
 //   fileUtil.confirmPath(logCfg.baseLogPath)
 //   //根据不同的logType创建不同的文件目录
 //   for (let key in log.appenders)
-//   // for(var i = 0, len = logCfg.appenders.length; i < len; i++)
 //   {
 //     if (logCfg.appenders[key].path)
 //     {
