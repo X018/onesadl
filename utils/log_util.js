@@ -1,6 +1,6 @@
 var log4js = require('log4js');
 
-var log_config = require('../config/log_cfg');
+var log_config = require('../cfg/log_cfg');
 
 //加载配置文件
 log4js.configure(log_config);

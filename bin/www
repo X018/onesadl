@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 //引入配置工具文件
-var envCfg = require('../config/env_cfg');
-var logCfg = require('../config/log_cfg');
-var fileUtil = require('../utils/file_util');
+var envCfg = require('../cfg/env_cfg');
 
 
 /*********************************** ONEBIT ***********************************/
@@ -102,18 +100,3 @@ console.log("ONEBIT NODE_ENV : " + (process.env.NODE_ENV || envCfg.env));
 // 打印输出端口号
 console.log('ONEBIT PORT : ' + envCfg.port);
 
-// /**
-//  * 初始化log相关目录
-//  */
-// if (logCfg.baseLogPath)
-// {
-//   fileUtil.confirmPath(logCfg.baseLogPath)
-//   //根据不同的logType创建不同的文件目录
-//   for (let key in log.appenders)
-//   {
-//     if (logCfg.appenders[key].path)
-//     {
-//       fileUtil.confirmPath(logCfg.baseLogPath + logCfg.appenders[i].path);
-//     }
-//   }
-// }
