@@ -1,5 +1,5 @@
 const octokit = require('@octokit/rest')({
-    timeout: 5000, // 0 means no request timeout
+    timeout: 8000, // 0 means no request timeout
     requestMedia: 'application/vnd.github.v3+json',
     headers: {
     'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
@@ -50,26 +50,70 @@ var repo_model = {
             order: 'desc',
             per_page: 100
         }
-        const data = await octokit.search.repos(msg);
+        return await octokit.search.repos(msg);
         // octokit.search.repos(msg, function (err, data) {
             // if (err) {return console.log(err)};
-            // var dataSet = treeData(data);
+            // return await treeData(data);
             // callback(null, dataSet);
             // callback(null, msg);
         // });
         //   octokit.search.repos(msg).then(function (err, data) {
         //     if (err) { console.log(err)};
-            // var dataSet = treeData(data);
-            // console.log(dataSet);
-            return msg;
+            
         //     // callback(null, dataSet);
         //     callback(null, msg);
         // });
+    },
+
+    treeData: function(dataSet) {
+    var languages = {};
+
+    var result = {
+        "name": "languages",
+        "children": []
     }
+
+    if (dataSet && dataSet.items) {
+        var items = dataSet.items;
+
+        items.forEach(function(item, index) {
+            if (typeof languages[item.language] === "undefined") {
+                languages[item.language] = index;
+            };
+        })
+
+        for (var language in languages) {
+            if (language === "null") {
+                language = "others";
+            };
+
+            var root = {
+                "name": language,
+                "children": []
+            };
+
+            items.forEach(function(item, index) {
+                var child = {
+                    "name": item.full_name,
+                    "watchers_count": item.watchers_count,
+                    "forks_count": item.forks_count
+                };
+
+                if (item.language === language || (item.language === "null" && language === "others")) {
+                    root.children.push(child);
+                };
+            })
+
+            result.children.push(root);
+        }
+    }
+
+    return result;
+}
 }
 
 // from /public/js/utils.js
-function treeData(data) {
+function treeData(dataSet) {
     var languages = {};
 
     var result = {
