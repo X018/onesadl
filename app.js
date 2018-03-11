@@ -9,7 +9,7 @@ const logger = require('koa-logger')
 const logUtil = require('./utils/log_util')
 
 const api_parser = require('./midwares/api_parser')
-const index = require('./routes/index')
+const appr = require('./routes/app_route')
 const api = require('./routes/api/api')   // 对api进行路由配置
 
 // error handler
@@ -24,7 +24,7 @@ app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
-  extension: 'pug'
+  extension: 'ejs'
 }))
 
 // logger
@@ -50,7 +50,7 @@ app.use(async (ctx, next) => {
 //添加格式化处理响应结果的中间件，在添加路由之前调用
 app.use(api_parser('^/api'));
 // routes
-app.use(index.routes(), index.allowedMethods())
+app.use(appr.routes(), appr.allowedMethods())
 app.use(api.routes(), api.allowedMethods());
 
 // error-handling

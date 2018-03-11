@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const user_ctrl = require('../../app/ctrls/user_ctrl');
+const user_ctrl = require('../../app/ctrl/user_ctrl');
 
 
 router.get('/getUser', user_ctrl.getUser);
