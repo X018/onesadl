@@ -20,9 +20,10 @@ var Search = (function() {
             searchBtn.on('click', function() {
                 var qStr = inputTxt.property('value');
                 var requestUrl = parseSearchUrl(qStr);
+                console.log(requestUrl);
                 listeners.forEach(function(listener) {
                     try {
-                        listener(url);
+                        listener(requestUrl);
                     } catch (error) {
                         console.log(error);
                     }

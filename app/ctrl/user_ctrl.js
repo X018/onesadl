@@ -10,6 +10,7 @@ exports.getUser = async (ctx, next) => {
 	}
     ctx.body = {
         username: 'karst.xia',
+      	uid: uid,
         age: 30
     }
 }

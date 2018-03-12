@@ -14,8 +14,8 @@ var repo_model = {
      * @param  {[type]}   condition      query string
      * @return {[type]}   [void]
      */
-    search: async (condition) => {
-        let cond = condition || {
+    search: async (query) => {
+        var cond = query || {
             q: 'blockchain',
             sort: 'forks',
             order: 'desc',
