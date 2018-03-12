@@ -21,6 +21,8 @@
     "tests"
   ],
   "dependencies": {
-    "d3": "^4.13.0"
+    "d3": "^4.13.0",
+    "bootstrap": "^4.0.0",
+    "font-awesome": "fontawesome#^5.0.8"
   }
 }
