@@ -9,10 +9,9 @@
     "test": "NODE_ENV=test ./node_modules/.bin/mocha"
   },
   "dependencies": {
-    "@octokit/rest": "^15.1.9",
+    "@octokit/rest": "^15.2.0",
     "debug": "^2.6.3",
     "ejs": "^2.5.7",
-    "github": "^14.0.0",
     "koa": "^2.2.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
@@ -26,6 +25,6 @@
     "mocha": "^5.0.4"
   },
   "devDependencies": {
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.17.1"
   }
 }
