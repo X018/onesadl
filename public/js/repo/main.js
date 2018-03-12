@@ -1,5 +1,5 @@
 (function() {
-    const SEARCH_API = 'http://127.0.0.1:8081/api/repo/search';
+    var SEARCH_API = 'http://127.0.0.1:8081/api/repo/search';
     var loading = document.getElementById("onesadl");
 
     Search.init(SEARCH_API);
@@ -21,7 +21,7 @@
                 alert("LOAD ERROR! CHECK NETWORK...")
             };
 
-            const data = result.data;
+            var data = result.data;
             Bar.show(Utils.getBarData(data));
 
             clearTimeout(loader);
